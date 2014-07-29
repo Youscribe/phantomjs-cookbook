@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe 'phantomjs::default' do
   context 'on ubuntu' do
-    before{ Fauxhai.mock(platform:'ubuntu') }
-    let(:runner){ ChefSpec::ChefRunner.new.converge('phantomjs::default') }
+    before { Fauxhai.mock(platform: 'ubuntu') }
+    let(:runner) { ChefSpec::ChefRunner.new.converge('phantomjs::default') }
 
     it 'should install the correct packages' do
       runner.should install_package 'fontconfig'
@@ -12,8 +12,8 @@ describe 'phantomjs::default' do
   end
 
   context 'on centos' do
-    before{ Fauxhai.mock(platform:'centos') }
-    let(:runner){ ChefSpec::ChefRunner.new.converge('phantomjs::default') }
+    before { Fauxhai.mock(platform: 'centos') }
+    let(:runner) { ChefSpec::ChefRunner.new.converge('phantomjs::default') }
 
     it 'should install the correct packages' do
       runner.should install_package 'fontconfig'

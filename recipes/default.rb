@@ -23,7 +23,7 @@ when 'debian'
   %w(fontconfig libfreetype6).each do |package|
     package package
   end
-when 'fedora','rhel'
+when 'fedora', 'rhel'
   %w(fontconfig freetype).each do |package|
     package package
   end
