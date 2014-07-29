@@ -32,6 +32,12 @@ end
 basename = "phantomjs-#{node['phantomjs']['version']}-linux-#{node['kernel']['machine']}"
 
 ark 'phantomjs' do
-  url "https://phantomjs.googlecode.com/files/#{basename}.tar.bz2"
+  version_number = node['phantomjs']['version'].split('.').map(&:to_i)
+  
+  if version_number[0] == 1 && version_number[1] == 9 && version_number[2] < 6 
+    url "https://phantomjs.googlecode.com/files/#{basename}.tar.bz2"
+  else
+    url "https://bitbucket.org/ariya/phantomjs/downloads/#{basename}.tar.bz2"
+  end
   has_binaries ['bin/phantomjs']
 end
